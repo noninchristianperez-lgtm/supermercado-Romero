@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supermercado Romero</title>
+    <style>
+        
+/*reset*/
+
+*{
+  padding: 0px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root{
+
+  --azul: #05a;
+  --verde:#2E8B57;
+  --verde-claro:#43a047;
+  --blanco:#ffffff;
+  --gris:#f5f5f5;
+  --texto:#222;
+  --rojo: #d32f2f;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+body{
+
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--texto);
+
+  background: var(--gris);
+  line-height: 1.6;
+
+}
+
+/* ===========================
+HEADER
+=========================== */
+
+.header{
+  width: 100%;
+  background-color: var(--azul);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px ;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.logo{
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
+.nav ul{
+  color: white;
+  font-weight: bold;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  
+}
+.nav a{
+  transition: color 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+
+}
+
+.nav a:hover{
+  color:#ffd54f;
+}
+
+
+
+/*main*/
+
+.container{
+
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  
+}
+
+/*===================
+hero
+=====================
+*/
+
+.hero{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  padding: 140px 0 80px;
+}
+
+.hero img{
+    height: 450px;
+    width:300px;
+    border-radius:15px;
+
+}
+
+.hero-text{
+  flex: 1;
+}
+
+.hero-text h2{
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom:20px;
+}
+
+.hero-text p{
+
+    margin-bottom:30px;
+    color:#555;
+
+}
+
+.hero-buttons{
+  display: flex;
+  gap:20px;
+
+}
+
+.btn{
+  display: inline-block;
+  background: var(--verde);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: .3s;
+}
+
+.btn:hover{
+  background: var(--verde-claro);
+  transform: translateY(-3px);
+}
+
+/*
+beneficios
+*/
+
+.beneficios h2{
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.beneficios {
+  margin-top: 60px;
+}
+.contenedor-beneficios{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex: 1;
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.beneficio{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    text-align: center;
+    box-shadow: 0 10px 1px rgba(0, 0, 0, 0.15);
+    transition: transform .3s cubic-bezier(0.42, 0, 0.58, 1);;
+
+}
+
+.beneficio:hover{
+  transform: translateY(-8px);
+}
+
+/*****************************
+PRODUCTOS
+*****************************/
+
+.productos h2{
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.productos{
+  padding-top: 60px;
+}
+
+.contenedor-productos{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr );
+  grid-template-rows: repeat(2, 1fr);
+  gap: 30px;
+  padding-top: 60px;
+}
+
+.producto{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    text-align: center;
+    box-shadow: 20px 10px 1px rgba(0, 0, 0, 0.15);
+    transition: transform .3s cubic-bezier(0.42, 0, 0.58, 1);;
+
+}
+.producto img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:10px;
+}
+.producto:hover{
+  transform: translateY(-8px);
+}
+
+/*
+ofertas
+
+*/
+
+.ofertas h2{
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+
+}
+
+.ofertas{
+    padding-top: 60px;
+}
+
+.contenedor-ofertas{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex: 1;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.oferta{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    text-align: center;
+    box-shadow: 20px 10px 1px rgba(0, 0, 0, 0.15);
+    transition: transform .3s cubic-bezier(0.42, 0, 0.58, 1);
+    margin-bottom: 30px;
+}
+
+.oferta:hover{
+  transform: translateY(-8px);
+}
+
+/*
+nosotros 
+*/
+
+.nosotros{
+  padding-top: 60px;
+  margin: 20px;
+  margin: 20px 0;
+  
+}
+
+.nosotros .info-nosotros{
+  display: flex;
+  gap: 60px;
+  align-items: center;
+}
+
+.nosotros h2 {
+  font-size: 2rem;
+}
+
+hr{
+  border: 1px solid;
+  color: #027;
+
+}
+
+/*domicilios
+
+*/
+.domicilios{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex:1;
+  gap: 10px;
+  margin:60px 0;
+    background: #e8f5e9;
+    border-radius: 15px;
+    padding: 50px;
+}
+.pasos{
+  display: flex;
+}
+
+button{
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--verde);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: .3s;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  min-width: 180px;
+}
+
+button:hover{
+  background: var(--verde-claro);
+  transform: translateY(-3px);
+}
+
+button:disabled{
+  opacity: 0.50;
+  cursor: wait;
+}
+
+button.is-loading{
+  pointer-events: none;
+}
+
+.spinner{
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#mensaje-domicilio{
+  min-height: 24px;
+  font-weight: bold;
+  color: var(--verde);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#mensaje-domicilio.show {
+  opacity: 1;
+}
+
+/*contacto
+*/  
+
+.contacto{
+  margin: 80px 0;
+}
+
+.contacto h2{
+    text-align:center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom:10px;
+}
+.descripcion-contacto{
+
+    text-align:center;
+    margin-bottom:40px;
+
+}
+.contenido-contacto{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.datos-contacto,form{
+  flex: 1;
+}
+
+form{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+input,
+textarea{
+    width:100%;
+    padding: 8px;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    transition: .3s;
+    background: #d0d0d0;
+}
+input:focus,
+textarea:focus{
+
+    border: 2px solid var(--verde);
+}
+
+/*
+footer
+*/
+footer{
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex: 1;
+
+    background: var(--verde);
+    
+    color: var(--blanco);
+
+    text-align: center;
+
+    padding: 10px 5px;
+
+    margin-top: 80px;
+
+}
+
+footer h3{
+
+    font-size: 1.5rem;
+
+    margin-bottom: 15px;
+
+}
+
+footer p{
+
+    margin: 8px 0;
+
+}
+
+/* ==========================
+   TABLETS
+========================== */
+
+@media (max-width: 768px){
+
+    .header{
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        position: static;
+    }
+
+    .nav ul{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero{
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 0;
+    }
+
+    .hero img{
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+    }
+
+    .hero-text h2{
+        font-size: 2rem;
+    }
+
+    .hero-buttons{
+        justify-content: center;
+    }
+
+    .contenedor-beneficios{
+        flex-direction: column;
+    }
+
+    .contenedor-productos{
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .contenedor-ofertas{
+        flex-direction: column;
+    }
+
+    .nosotros .info-nosotros{
+        flex-direction: column;
+    }
+
+    .contenido-contacto{
+        flex-direction: column;
+    }
+
+    footer{
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+}
+
+
+/* ==========================
+   CELULARES
+========================== */
+
+@media (max-width: 480px){
+
+    .logo{
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .nav ul{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .hero-text h2{
+        font-size: 1.6rem;
+    }
+
+    .hero-text p{
+        font-size: .95rem;
+    }
+
+    .contenedor-productos{
+        grid-template-columns: 1fr;
+    }
+
+    .beneficio,
+    .producto,
+    .oferta{
+        padding: 20px;
+    }
+
+    .domicilios{
+        padding: 30px 20px;
+    }
+
+    .contacto{
+        margin: 40px 0;
+    }
+
+    input,
+    textarea,
+    button{
+        font-size: 1rem;
+    }
+
+}
+    </style>
+</head>
+<body>
+
+    <header class="header">
+
+        <h1 class="logo">
+            <a href="#hero">Supermercado Romero</a>
+        </h1>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#ofertas">Ofertas</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main class="container">
+
+        <!-- HERO -->
+        <section class="hero" id="hero">
+
+            <img src="img/logo.jpg" alt="Supermercado Romero" >
+
+            <div class="hero-text">
+                <h2>Todo lo que necesita para su hogar lo encuentra aquí</h2>
+
+                <p>
+                    Consulta nuestros productos, descubre nuestras ofertas
+                    y solicita tu domicilio de forma rápida y sencilla.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#productos" class="btn">Ver productos</a>
+                    <a href="#contacto" class="btn">Contáctanos</a>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- BENEFICIOS -->
+        <section class="beneficios">
+
+            <h2>¿Por qué elegirnos?</h2>
+            <hr>
+            <div class="contenedor-beneficios">
+
+                <article class="beneficio">
+                    <h3>🥬 Productos Frescos</h3>
+                    <p>Seleccionamos diariamente productos de excelente calidad.</p>
+                </article>
+
+                <article class="beneficio">
+                    <h3>💲 Mejores Precios</h3>
+                    <p>Ofertas y promociones para ayudar al ahorro familiar.</p>
+                </article>
+
+                <article class="beneficio">
+                    <h3>🚚 Domicilio Rápido</h3>
+                    <p>Recibe tus compras cómodamente sin salir de casa.</p>
+                </article>
+
+            </div>
+<br>
+        </section>
+
+        <!-- PRODUCTOS -->
+        <section class="productos" id="productos">
+
+            <h2>Nuestros Productos</h2>
+            <hr>
+            <div class="contenedor-productos">
+
+                <article class="producto">
+                    <img src="img/lacteos.jpg" alt="Productos lácteos">
+                    <h3>Lácteos</h3>
+                    <p>Leche, quesos, yogures y otros productos refrigerados para toda la familia.</p>
+                </article>
+
+                <article class="producto">
+                    <img src="img/carnes.webp" alt="Carnes">
+                    <h3>Carnes</h3>
+                    <p>Carnes de res, pollo y cerdo con altos estándares de calidad.</p>
+                </article>
+
+                <article class="producto">
+                    <img src="img/pasillo-frutas.jpg" alt="Frutas y verduras">
+                    <h3>Frutas y Verduras</h3>
+                    <p>Productos frescos seleccionados diariamente para garantizar calidad y buen sabor.</p>
+                </article>
+
+                <article class="producto">
+                    <img src="img/jugos.jpg" alt="Bebidas">
+                    <h3>Bebidas</h3>
+                    <p>Gran variedad de jugos, refrescos, agua y bebidas energéticas.</p>
+                </article>
+
+                <article class="producto">
+                    <img src="img/limpieza.webp" alt="Productos de limpieza">
+                    <h3>Limpieza</h3>
+                    <p>Todo lo necesario para mantener limpio y organizado tu hogar.</p>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- OFERTAS -->
+        <section class="ofertas" id="ofertas">
+
+            <h2>Ofertas de la Semana</h2>
+            <hr>
+            <div class="contenedor-ofertas">
+
+                <article class="oferta">
+                    <h3>🍎 Frutas</h3>
+                    <p>20% de descuento en frutas seleccionadas.</p>
+                </article>
+
+                <article class="oferta">
+                    <h3>🧴 Limpieza</h3>
+                    <p>Lleva dos productos de limpieza y obtén el tercero con descuento.</p>
+                </article>
+
+                <article class="oferta">
+                    <h3>🥤 Bebidas</h3>
+                    <p>Promociones especiales en bebidas familiares durante toda la semana.</p>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- NOSOTROS -->
+        <section class="nosotros" id="nosotros">
+
+            <h2>🏪¿Quiénes Somos?
+            </h2>
+            <hr>
+            <p>
+                Supermercado Romero es un negocio comprometido con brindar
+                productos de calidad, excelente atención y precios accesibles
+                para las familias de Volcán.
+            </p>
+
+            <div class="info-nosotros">
+
+                <article>
+                    <h3>🎯Misión</h3>
+                    <p>
+                        Ofrecer productos de calidad con un servicio confiable
+                        que facilite las compras de nuestros clientes.
+                    </p>
+                </article>
+
+                <article>
+                    <h3>🚀VisiónVisión</h3>
+                    <p>
+                        Ser el supermercado preferido de la comunidad por
+                        nuestro compromiso, variedad y atención.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- DOMICILIOS -->
+        <section class="domicilios" id="domicilios">
+
+    <h2>🚚 Servicio de Domicilio
+        <hr>
+    </h2>
+            
+    <p>
+        Compra desde la comodidad de tu hogar y recibe tus productos de forma rápida y segura.
+    </p>
+
+    <div class="pasos">
+
+        <div class="paso">
+            <h3>1. Selecciona</h3>
+            <p>Explora los productos disponibles. </p>
+        </div>
+
+        <div class="paso">
+            <h3>2. Solicita</h3>
+            <p>Realiza tu pedido mediante la página.</p>
+        </div>
+
+        <div class="paso">
+            <h3>3. Recibe</h3>
+            <p>Un colaborador llevará tu compra hasta tu hogar.</p>
+        </div>
+
+    </div>
+
+    <button type="button" id="btn-domicilios"
+        >Solicitar domicilio
+    </button>
+    <p id="mensaje-domicilio"></p>
+</section>
+
+        <!-- CONTACTO -->
+        <section class="contacto" id="contacto">
+
+    <h2>📞 Contáctanos</h2>
+
+    <p class="descripcion-contacto">
+        ¿Tienes dudas? Escríbenos o visita nuestra sucursal.
+    </p>
+
+    <div class="contenido-contacto">
+
+        <div class="datos-contacto">
+
+            <h3>Información</h3>
+
+            <p>📍 Volcán, Tierras Altas, Chiriquí</p>
+
+            <p>☎ +507 771-0000</p>
+
+            <p>✉ contacto@romero.com.pa</p>
+
+            <p>🕒 Lunes a sábado<br>7:00 a.m. - 9:00 p.m.</p>
+
+        </div>
+
+        <form>
+
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre">
+
+            <label for="correo">Correo</label>
+            <input type="email" id="correo">
+
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" rows="5"></textarea>
+
+            <button type="submit" id="btn-validacion">
+                Enviar mensaje
+            </button>
+
+            <p id="mensaje-formulario"></p>
+        </form>
+
+    </div>
+
+</section>
+
+    </main>
+
+   <footer>
+
+    <h3>Supermercado Romero</h3>
+
+    <p>Calidad, variedad y atención para toda la familia.</p>
+
+    <p>📍 Volcán, Tierras Altas, Chiriquí</p>
+
+    <p>&copy; 2026 Proyecto académico de Multimedia y Desarrollo Web.</p>
+
+</footer>
+
+<script>
+    const domicilio = document.getElementById('btn-domicilios');
+const mensaje = document.getElementById('mensaje-domicilio');
+
+const nombre = document.getElementById('nombre');
+const correo = document.getElementById('correo');
+const textArea = document.getElementById('mensaje');
+const formulario = document.querySelector('form');
+const btnForm = document.getElementById('btn-validacion');
+const mensajeFormulario = document.getElementById('mensaje-formulario');
+
+function activarCarga(boton, elementoMensaje, textoExito) {
+  if (!boton || !elementoMensaje) return;
+
+  boton.disabled = true;
+  boton.classList.add('is-loading');
+  boton.innerHTML = '<span class="spinner"></span>Procesando...';
+  elementoMensaje.textContent = '';
+  elementoMensaje.classList.remove('show');
+
+  setTimeout(() => {
+    elementoMensaje.textContent = textoExito;
+    elementoMensaje.classList.add('show');
+    boton.classList.remove('is-loading');
+    boton.innerHTML = boton.dataset.originalText || boton.textContent;
+    boton.disabled = false;
+  }, 2500);
+}
+
+if (domicilio && mensaje) {
+  domicilio.dataset.originalText = 'Solicitar domicilio';
+  domicilio.addEventListener('click', () => {
+    activarCarga(domicilio, mensaje, '¡Pedido recibido! En breve te contactaremos.');
+  });
+}
+
+if (formulario && btnForm && mensajeFormulario) {
+  btnForm.dataset.originalText = 'Enviar mensaje';
+
+  formulario.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const nombreValido = nombre.value.trim() !== '';
+    const correoValido = correo.value.trim() !== '' && correo.value.includes('@');
+    const mensajeValido = textArea.value.trim() !== '';
+
+    if (!nombreValido || !correoValido || !mensajeValido) {
+      mensajeFormulario.textContent = 'Por favor completa todos los campos correctamente.';
+      mensajeFormulario.classList.add('show');
+      return;
+    }
+
+    activarCarga(btnForm, mensajeFormulario, '¡Mensaje enviado! Gracias por contactarnos.');
+  });
+}
+</script>
+</body>
+</html>
